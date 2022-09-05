@@ -1,9 +1,9 @@
-#vBANK 
+# vBANK 
 Distributed banking system with multicurrency support and transaction report
 available as opensource model to create banking emulators for games or learning purposes
 
 
-..:: NOW DEVELOPING::.. 
+ ## ..:: NOW DEVELOPING::.. 
 
 Main microsystem environment diagram:
 
