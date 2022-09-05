@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vBNK_sys.iml" afterDir="false" />
+    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="BASIC STRUCTURE">
+      <change afterPath="$PROJECT_DIR$/diagrams/Requisites/requisites_account_class_diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagrams/Requisites/requisites_class_diagram.mdj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagrams/Requisites/requisites_class_diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagrams/Requisites/requisites_user_class_diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagrams/requisites_class_diagram.mdj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagrams/vBNK_MainSystemDiagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vBNK_data-service/src/main/java/com/ironhack/vbnk_dataservice/data/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +21,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2EKLHD9ACzxN6qiJiicDNTXMZJ9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -27,21 +54,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SCVRI/IdeaProjects/vBNK/vBNK_sys/vBNK_anti-fraud-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/SCVRI/IdeaProjects/vBNK/vBNK_sys/vBNK_data-service/src/main/java/com/ironhack/vbnk_dataservice/data",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "24e2d6aed5cfeda145886b595b0bd8ce"
   }
-}</component>
-  <component name="RunManager" selected="Spring Boot.VBnkAntiFraudServiceApplication">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNK\vBNK_sys\vBNK_data-service\src\main\java\com\ironhack\vbnk_dataservice\data" />
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNK\vBNK_sys" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.All in vBNK_transaction-service">
+    <configuration name="All in vBNK_transaction-service" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vBNK_transaction-service" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vBNK_sys" />
       <method v="2">
@@ -55,34 +106,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VBnkAntiFraudServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="VBnk_AntiFraud" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="vBNK_anti-fraud-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_antifraudservice.VBnkAntiFraudServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VBnkDataServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="VBnk_Data" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="vBNK_data-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_dataservice.VBnkDataServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VBnkGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="VBnk_Gateway" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="vBNK_gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_gateway.VBnkGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VBnkTransactionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="VBnk_Transaction" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="vBNK_transaction-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_transactionservice.VBnkTransactionServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.All in vBNK_transaction-service" />
+      <item itemvalue="Spring Boot.VBnk_AntiFraud" />
+      <item itemvalue="Spring Boot.VBnk_Data" />
+      <item itemvalue="Spring Boot.VBnk_Gateway" />
+      <item itemvalue="Spring Boot.VBnk_Transaction" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in vBNK_transaction-service" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -95,7 +162,24 @@
       <workItem from="1662339244418" duration="5000" />
       <workItem from="1662339321887" duration="127000" />
       <workItem from="1662339463990" duration="21000" />
+      <workItem from="1662342022082" duration="368000" />
+      <workItem from="1662342714733" duration="682000" />
     </task>
+    <task id="LOCAL-00001" summary="BASIC STRUCTURE">
+      <created>1662342231592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662342231592</updated>
+    </task>
+    <task id="LOCAL-00002" summary="BASIC STRUCTURE">
+      <created>1662342259052</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662342259052</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +190,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -114,5 +210,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="BASIC STRUCTURE" />
+    <option name="LAST_COMMIT_MESSAGE" value="BASIC STRUCTURE" />
   </component>
 </project>
