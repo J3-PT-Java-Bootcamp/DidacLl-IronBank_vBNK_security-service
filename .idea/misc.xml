@@ -7,6 +7,8 @@
         <option value="$PROJECT_DIR$/vBNK_sys/vBNK_data-service/pom.xml" />
         <option value="$PROJECT_DIR$/vBNK_sys/vBNK_gateway/pom.xml" />
         <option value="$PROJECT_DIR$/vBNK_sys/vBNK_transaction-service/pom.xml" />
+        <option value="$PROJECT_DIR$/vBNK_discovery-service/pom.xml" />
+        <option value="$PROJECT_DIR$/vBNK_sys/vBNK_discovery-service/pom.xml" />
       </list>
     </option>
   </component>

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vBNK_gateway" />
+        <module name="vBNK_discovery-service" />
         <module name="vBNK_data-service" />
         <module name="vBNK_anti-fraud-service" />
         <module name="vBNK_transaction-service" />
@@ -15,6 +16,7 @@
     <bytecodeTargetLevel>
       <module name="vBNK_anti-fraud-service" target="17" />
       <module name="vBNK_data-service" target="17" />
+      <module name="vBNK_discovery-service" target="17" />
       <module name="vBNK_gateway" target="17" />
       <module name="vBNK_transaction-service" target="17" />
     </bytecodeTargetLevel>
@@ -23,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="vBNK_anti-fraud-service" options="-parameters" />
       <module name="vBNK_data-service" options="-parameters" />
+      <module name="vBNK_discovery-service" options="-parameters" />
       <module name="vBNK_gateway" options="-parameters" />
       <module name="vBNK_transaction-service" options="-parameters" />
     </option>
