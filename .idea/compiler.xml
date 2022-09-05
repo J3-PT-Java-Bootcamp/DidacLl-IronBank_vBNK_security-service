@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="vBNK_gateway" />
+        <module name="vBNK_data-service" />
+        <module name="vBNK_anti-fraud-service" />
+        <module name="vBNK_transaction-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="vBNK_anti-fraud-service" target="17" />
+      <module name="vBNK_data-service" target="17" />
+      <module name="vBNK_gateway" target="17" />
+      <module name="vBNK_transaction-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="vBNK_anti-fraud-service" options="-parameters" />
+      <module name="vBNK_data-service" options="-parameters" />
+      <module name="vBNK_gateway" options="-parameters" />
+    </option>
+  </component>
+</project>
