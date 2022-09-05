@@ -15,3 +15,6 @@ Class Diagrams from requisites::
 
 ![imagen](https://user-images.githubusercontent.com/107514286/188348434-b8c152e4-c1b6-429e-b960-88c22eb06d41.png)
 
+:')
+![imagen](https://user-images.githubusercontent.com/107514286/188509742-b9566b9c-696f-4926-a984-115288862463.png)
+
