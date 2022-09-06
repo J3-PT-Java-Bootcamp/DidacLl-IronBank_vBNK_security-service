@@ -4,6 +4,7 @@ available as opensource model to create banking emulators for games or learning 
 
 
  ## ..:: NOW DEVELOPING::.. 
+![imagen](https://user-images.githubusercontent.com/107514286/188531687-9a797666-8df1-4c81-a4f2-ceb16372cf27.png)
 
 Main microsystem environment diagram:
 
