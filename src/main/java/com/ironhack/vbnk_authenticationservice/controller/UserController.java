@@ -19,7 +19,7 @@ import javax.ws.rs.BadRequestException;
 import javax.ws.rs.core.Response;
 
 @RestController
-@RequestMapping("/v1/security")
+@RequestMapping("/user")
 public class UserController {
     private final KeycloakAdminClientService kcAdminClient;
 
@@ -32,14 +32,14 @@ public class UserController {
     }
 
 
-    @PostMapping(value = "/auth/create")
+    @PostMapping(value = "/create")
     public ResponseEntity<?> createUser(@RequestBody CreateUserRequest user) {
         Response createdResponse = kcAdminClient.createKeycloakUser(user);
         return ResponseEntity.status(createdResponse.getStatus()).build();
 
     }
 
-    @PostMapping("/public/token")
+    @PostMapping("/get-token")
     public ResponseEntity<AccessTokenResponse> login(@NotNull @RequestBody LoginRequest loginRequest) {
         Keycloak keycloak = kcProvider.newKeycloakBuilderWithPasswordCredentials(loginRequest.getUsername(), loginRequest.getPassword()).build();
 
