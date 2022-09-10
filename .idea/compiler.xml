@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -11,9 +12,11 @@
         <module name="vBNK_data-service" />
         <module name="vBNK_anti-fraud-service" />
         <module name="vBNK_transaction-service" />
+        <module name="vBNK-authentication-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="vBNK-authentication-service" target="17" />
       <module name="vBNK_anti-fraud-service" target="17" />
       <module name="vBNK_data-service" target="17" />
       <module name="vBNK_discovery-service" target="17" />
@@ -23,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="vBNK-authentication-service" options="-parameters" />
       <module name="vBNK_anti-fraud-service" options="-parameters" />
       <module name="vBNK_data-service" options="-parameters" />
       <module name="vBNK_discovery-service" options="-parameters" />
