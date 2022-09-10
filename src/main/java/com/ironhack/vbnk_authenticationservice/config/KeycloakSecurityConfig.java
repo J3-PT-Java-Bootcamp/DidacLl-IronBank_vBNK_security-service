@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
@@ -22,14 +23,19 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.authorizeRequests()
-                .antMatchers("/**").permitAll()
-//                .antMatchers("v1/member/**").hasAnyRole("member")
-//                .antMatchers("/moderator/**").hasAnyRole("moderator")
-//                .antMatchers("/admin/**").hasAnyRole("admin")
+        http.csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/v1/**").hasRole("developer")
+                .antMatchers( "/v1/**/client/**").hasRole("client")
+                .antMatchers("/v1/**/auth/**").hasAnyRole("admin","client")
+                .antMatchers("/v1/**/main/**").hasAnyRole("admin","customer")
+                .antMatchers("/v1/**/public/**").permitAll()
                 .anyRequest()
-                .permitAll();
-        http.csrf().disable();
+                .authenticated()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Autowired

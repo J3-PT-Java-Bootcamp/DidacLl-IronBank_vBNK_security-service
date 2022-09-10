@@ -76,7 +76,12 @@
             <artifactId>spring-cloud-netflix-eureka-client</artifactId>
             <version>3.1.4</version>
         </dependency>
+<!--NEW-->
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jersey</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
