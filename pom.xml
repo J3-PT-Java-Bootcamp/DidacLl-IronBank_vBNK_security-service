@@ -76,12 +76,19 @@
             <artifactId>spring-cloud-netflix-eureka-client</artifactId>
             <version>3.1.4</version>
         </dependency>
-<!--NEW-->
+        <!--NEW-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-adapter-core</artifactId>
+            <version>19.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
