@@ -1,8 +1,8 @@
-package com.ironhack.nicetomeetyoukeycloak.service;
+package com.ironhack.vbnk_authenticationservice.service;
 
 
-import com.ironhack.nicetomeetyoukeycloak.config.KeycloakProvider;
-import com.ironhack.nicetomeetyoukeycloak.http.requests.CreateUserRequest;
+import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
+import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
 import lombok.extern.java.Log;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;

@@ -1,4 +1,4 @@
-package com.ironhack.nicetomeetyoukeycloak.config;
+package com.ironhack.vbnk_authenticationservice.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;

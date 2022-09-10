@@ -1,6 +1,6 @@
 {
-  "id": "nice-to-meet-you-keycloak",
-  "realm": "nice-to-meet-you-keycloak",
+  "id": "vbnk-sys",
+  "realm": "vbnk-sys",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
@@ -51,7 +51,7 @@
         "description": "${role_offline-access}",
         "composite": false,
         "clientRole": false,
-        "containerId": "nice-to-meet-you-keycloak",
+        "containerId": "vbnk-sys",
         "attributes": {}
       },
       {
@@ -60,12 +60,12 @@
         "description": "${role_uma_authorization}",
         "composite": false,
         "clientRole": false,
-        "containerId": "nice-to-meet-you-keycloak",
+        "containerId": "vbnk-sys",
         "attributes": {}
       },
       {
         "id": "3494af03-8595-459c-9a5c-c1c7be0ac7f1",
-        "name": "default-roles-nice-to-meet-you-keycloak",
+        "name": "default-roles-vbnk-sys",
         "description": "${role_default-roles}",
         "composite": true,
         "composites": {
@@ -81,7 +81,7 @@
           }
         },
         "clientRole": false,
-        "containerId": "nice-to-meet-you-keycloak",
+        "containerId": "vbnk-sys",
         "attributes": {}
       }
     ],
@@ -444,11 +444,11 @@
   "groups": [],
   "defaultRole": {
     "id": "3494af03-8595-459c-9a5c-c1c7be0ac7f1",
-    "name": "default-roles-nice-to-meet-you-keycloak",
+    "name": "default-roles-vbnk-sys",
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
-    "containerId": "nice-to-meet-you-keycloak"
+    "containerId": "vbnk-sys"
   },
   "requiredCredentials": [
     "password"
@@ -499,7 +499,7 @@
       "disableableCredentialTypes": [],
       "requiredActions": [],
       "realmRoles": [
-        "default-roles-nice-to-meet-you-keycloak"
+        "default-roles-vbnk-sys"
       ],
       "clientRoles": {
         "realm-management": [
@@ -550,13 +550,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/nice-to-meet-you-keycloak/account/",
+      "baseUrl": "/realms/vbnk-sys/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/nice-to-meet-you-keycloak/account/*"
+        "/realms/vbnk-sys/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -591,13 +591,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/nice-to-meet-you-keycloak/account/",
+      "baseUrl": "/realms/vbnk-sys/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/nice-to-meet-you-keycloak/account/*"
+        "/realms/vbnk-sys/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -755,13 +755,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/nice-to-meet-you-keycloak/console/",
+      "baseUrl": "/admin/vbnk-sys/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/nice-to-meet-you-keycloak/console/*"
+        "/admin/vbnk-sys/console/*"
       ],
       "webOrigins": [
         "+"

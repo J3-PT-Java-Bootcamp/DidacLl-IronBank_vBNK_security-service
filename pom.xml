@@ -8,11 +8,11 @@
         <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ironhack</groupId>
-    <artifactId>Nice-to-meet-you-keycloak</artifactId>
+    <groupId>com.ironhack.vbnk_authenticationservice</groupId>
+    <artifactId>vBNK-authentication-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Nice-to-meet-you-keycloak</name>
-    <description>Nice-to-meet-you-keycloak</description>
+    <name>vBNK_authentication-service</name>
+    <description>vBNK_authentication-service</description>
     <properties>
         <java.version>17</java.version>
         <keycloak.version>19.0.1</keycloak.version>
@@ -56,6 +56,27 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.netflix.eureka</groupId>
+            <artifactId>eureka-client</artifactId>
+            <version>1.10.17</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.eureka</groupId>
+            <artifactId>eureka-client-jersey2</artifactId>
+            <version>1.10.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter</artifactId>
+            <version>3.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+            <version>3.1.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>

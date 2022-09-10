@@ -1,4 +1,4 @@
-package com.ironhack.nicetomeetyoukeycloak.config;
+package com.ironhack.vbnk_authenticationservice.config;
 
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
 import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter;
@@ -23,10 +23,10 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-                .antMatchers("/public/**").permitAll()
-                .antMatchers("/member/**").hasAnyRole("member")
-                .antMatchers("/moderator/**").hasAnyRole("moderator")
-                .antMatchers("/admin/**").hasAnyRole("admin")
+                .antMatchers("/**").permitAll()
+//                .antMatchers("v1/member/**").hasAnyRole("member")
+//                .antMatchers("/moderator/**").hasAnyRole("moderator")
+//                .antMatchers("/admin/**").hasAnyRole("admin")
                 .anyRequest()
                 .permitAll();
         http.csrf().disable();

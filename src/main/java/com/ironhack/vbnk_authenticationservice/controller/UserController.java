@@ -1,10 +1,10 @@
-package com.ironhack.nicetomeetyoukeycloak.controller;
+package com.ironhack.vbnk_authenticationservice.controller;
 
 
-import com.ironhack.nicetomeetyoukeycloak.config.KeycloakProvider;
-import com.ironhack.nicetomeetyoukeycloak.http.requests.CreateUserRequest;
-import com.ironhack.nicetomeetyoukeycloak.http.requests.LoginRequest;
-import com.ironhack.nicetomeetyoukeycloak.service.KeycloakAdminClientService;
+import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
+import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
+import com.ironhack.vbnk_authenticationservice.http.requests.LoginRequest;
+import com.ironhack.vbnk_authenticationservice.service.KeycloakAdminClientService;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.AccessTokenResponse;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import javax.ws.rs.BadRequestException;
 import javax.ws.rs.core.Response;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/public")
 public class UserController {
     private final KeycloakAdminClientService kcAdminClient;
 
@@ -39,7 +39,7 @@ public class UserController {
 
     }
 
-    @PostMapping("/get-token")
+    @PostMapping("/token")
     public ResponseEntity<AccessTokenResponse> login(@NotNull @RequestBody LoginRequest loginRequest) {
         Keycloak keycloak = kcProvider.newKeycloakBuilderWithPasswordCredentials(loginRequest.getUsername(), loginRequest.getPassword()).build();
 

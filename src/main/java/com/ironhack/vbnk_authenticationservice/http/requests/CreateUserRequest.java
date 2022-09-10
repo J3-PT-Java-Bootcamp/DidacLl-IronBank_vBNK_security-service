@@ -1,4 +1,4 @@
-package com.ironhack.nicetomeetyoukeycloak.http.requests;
+package com.ironhack.vbnk_authenticationservice.http.requests;
 
 
 import lombok.Getter;
