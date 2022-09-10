@@ -50,6 +50,8 @@ public class KeycloakAdminClientService {
         kcUser.setEmail(user.getEmail());
         kcUser.setEnabled(true);
         kcUser.setEmailVerified(false);
+
+//        Change this to change the group logic
         kcUser.setGroups(List.of("members"));
 
 

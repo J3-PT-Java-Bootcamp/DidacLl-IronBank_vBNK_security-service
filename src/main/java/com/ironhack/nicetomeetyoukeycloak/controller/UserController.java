@@ -34,13 +34,12 @@ public class UserController {
 
     @PostMapping(value = "/create")
     public ResponseEntity<?> createUser(@RequestBody CreateUserRequest user) {
-        System.out.println("hello I'm in");
         Response createdResponse = kcAdminClient.createKeycloakUser(user);
         return ResponseEntity.status(createdResponse.getStatus()).build();
 
     }
 
-    @PostMapping("/login")
+    @PostMapping("/get-token")
     public ResponseEntity<AccessTokenResponse> login(@NotNull @RequestBody LoginRequest loginRequest) {
         Keycloak keycloak = kcProvider.newKeycloakBuilderWithPasswordCredentials(loginRequest.getUsername(), loginRequest.getPassword()).build();
 
