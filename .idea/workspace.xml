@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="BASIC STRUCTURE">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/HelloController.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldcontroller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldrequests/CreateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldrequests/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldservice/KeycloakAdminClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +79,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/Users/SCVRI/IdeaProjects/vBNK",
+    "last_opened_file_path": "C:/Users/SCVRI/IdeaProjects/vBNKsys/vBNK_security-service/src/main/java/com/ironhack/vbnk_authenticationservice/http",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,10 +92,18 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice\http" />
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice\old" />
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice" />
       <recent name="C:\Users\SCVRI\IdeaProjects\vBNK\vBNK_sys" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ironhack.vbnk_authenticationservice.services" />
+      <recent name="com.ironhack.vbnk_authenticationservice" />
       <recent name="com.ironhack.vbnk_gateway.filters" />
       <recent name="com.ironhack.vbnk_gateway.configuration" />
       <recent name="com.ironhack.vbnk_gateway" />
@@ -97,43 +116,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.VBnkAntiFraudServiceApplication">
-    <configuration name="VBnkAntiFraudServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="vBNK_anti-fraud-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_antifraudservice.VBnkAntiFraudServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VBnkDataServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="vBNK_data-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_dataservice.VBnkDataServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VBnkDiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="vBNK_discovery-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_discoveryservice.VBnkDiscoveryServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VBnkGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="vBNK_gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_gateway.VBnkGatewayApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VBnkTransactionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="vBNK_transaction-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_transactionservice.VBnkTransactionServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="vBNKAuthenticationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
       <module name="vBNK-authentication-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ironhack.vbnk_authenticationservice.vBNKAuthenticationServiceApplication" />
       <method v="2">
@@ -154,6 +139,9 @@
       <workItem from="1662402107774" duration="1795000" />
       <workItem from="1662841683599" duration="1826000" />
       <workItem from="1662852238375" duration="47000" />
+      <workItem from="1663151768606" duration="46000" />
+      <workItem from="1663165596455" duration="452000" />
+      <workItem from="1663166335761" duration="834000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
