@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vBNK_gateway" />
-        <module name="vBNK_discovery-service" />
         <module name="vBNK_data-service" />
         <module name="vBNK_anti-fraud-service" />
         <module name="vBNK_transaction-service" />

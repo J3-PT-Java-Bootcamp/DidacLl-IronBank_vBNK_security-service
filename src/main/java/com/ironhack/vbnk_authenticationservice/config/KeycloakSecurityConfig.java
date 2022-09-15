@@ -5,6 +5,7 @@ import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,17 +27,14 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/").permitAll();
-//                .antMatchers("/v1/security/public/token").permitAll()
-//                .antMatchers("/v1/**").hasRole("developer")
-//                .antMatchers( "**/client/**").hasRole("client")
-//                .antMatchers("**/auth/**").hasAnyRole("admin","client")
-//                .antMatchers("**/main/**").hasAnyRole("admin","customer")
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .antMatchers(HttpMethod.POST,"/v1/security/public/create").permitAll()
+                .antMatchers(HttpMethod.GET,"/v1/security/public/ping").permitAll()
+                .antMatchers(HttpMethod.POST,"/v1/security/public/token").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);;
     }
 
     @Autowired

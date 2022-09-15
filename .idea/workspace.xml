@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Fixed git">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/ReactiveWebfluxSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
         <entry key="$PROJECT_DIR$/vBNK_sys/vBNK_data-service" value="master" />
         <entry key="$PROJECT_DIR$/vBNK_sys/vBNK_gateway" value="master" />
         <entry key="$PROJECT_DIR$/vBNK_sys/vBNK_transaction-service" value="master" />
@@ -216,5 +221,8 @@
     <MESSAGE value="BASIC STRUCTURE" />
     <MESSAGE value="Fixed git" />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed git" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/vBNK$vBNKData_TEST.ic" NAME="vBNKData_TEST Coverage Results" MODIFIED="1662652442063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

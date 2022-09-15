@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/vBNK-authentication-service.iml" filepath="$PROJECT_DIR$/vBNK-authentication-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/vBNK_sys/vBNK_anti-fraud-service/vBNK_anti-fraud-service.iml" filepath="$PROJECT_DIR$/vBNK_sys/vBNK_anti-fraud-service/vBNK_anti-fraud-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/vBNK_sys/vBNK_data-service/vBNK_data-service.iml" filepath="$PROJECT_DIR$/vBNK_sys/vBNK_data-service/vBNK_data-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/vBNK_discovery-service/vBNK_discovery-service.iml" filepath="$PROJECT_DIR$/vBNK_discovery-service/vBNK_discovery-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/vBNK_sys/vBNK_gateway/vBNK_gateway.iml" filepath="$PROJECT_DIR$/vBNK_sys/vBNK_gateway/vBNK_gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/vBNK_sys/vBNK_transaction-service/vBNK_transaction-service.iml" filepath="$PROJECT_DIR$/vBNK_sys/vBNK_transaction-service/vBNK_transaction-service.iml" />
     </modules>
