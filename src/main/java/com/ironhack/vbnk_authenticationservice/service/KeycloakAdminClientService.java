@@ -1,22 +1,33 @@
 package com.ironhack.vbnk_authenticationservice.service;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
 import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
 import com.ironhack.vbnk_authenticationservice.http.requests.NewAccountHolderRequest;
 import lombok.extern.java.Log;
+import org.apache.http.auth.Credentials;
+import org.keycloak.adapters.RefreshableKeycloakSecurityContext;
+import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.mapping.Attributes2GrantedAuthoritiesMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.server.context.SecurityContextServerWebExchange;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import javax.ws.rs.core.Response;
+import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 
@@ -50,7 +61,7 @@ public class KeycloakAdminClientService {
         return passwordCredentials;
     }
 
-    public Response createKeycloakUser(CreateUserRequest user) {
+    public String createKeycloakUser(CreateUserRequest user) throws JsonProcessingException {
         var adminKeycloak = kcProvider.getInstance();
         UsersResource usersResource = kcProvider.getInstance().realm(realm).users();
         CredentialRepresentation credentialRepresentation = createPasswordCredentials(user.getPassword());
@@ -71,16 +82,29 @@ public class KeycloakAdminClientService {
         Response response = usersResource.create(kcUser);
 
         if (response.getStatus() == 201) {
-            List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername()).stream()
+            var authentication = SecurityContextHolder.getContext().getAuthentication().getCredentials();
+            var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getIdTokenString();
+            RealmResource realm1 = adminKeycloak.realm(realm);
+            UsersResource users = realm1.users();
+            List<UserRepresentation> userList = users.search(kcUser.getUsername()).stream()
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
             log.info("User with id: " + createdUser.getId() + " created");
-
+            createClient();
+//            var map = new ObjectMapper();
+//            var objectString=
+            return client.post()
+                    .uri("/v1/data/client/users/new/account-holder")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .header("Authorization", tokenString)
+                    .body(Mono.just(NewAccountHolderRequest.fromCreateUserRequest(user).setId(createdUser.getId())),NewAccountHolderRequest.class)
+                    .retrieve().bodyToMono(String.class)
+                    .block();
 //            TODO you may add you logic to store and connect the keycloak user to the local user here
-
+//            return createdUser.getId();
         }
+        return "ERR";
 
-        return response;
 
     }
 

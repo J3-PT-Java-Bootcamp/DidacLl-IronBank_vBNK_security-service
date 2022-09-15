@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Setter
 public class CreateUserRequest {
     private String username,password,email,firstname,lastname;
-    private String dateOfBirth;
+    private int dayOfBirth,monthOfBirth,yearOfBirth;
     private String mainStreet, mainCity, mainCountry, mainAdditionalInfo;
     private String mailStreet, mailCity, mailCountry, mailAdditionalInfo;
     private Integer mainStreetNumber, mainZipCode;

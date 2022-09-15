@@ -1,5 +1,6 @@
 package com.ironhack.vbnk_authenticationservice.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
 import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
 import com.ironhack.vbnk_authenticationservice.http.requests.LoginRequest;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.BadRequestException;
-import javax.ws.rs.core.Response;
 
 @RestController
 @RequestMapping("/v1/security")
@@ -39,10 +39,11 @@ public class UserController {
 //
 //    }
     @PostMapping( "/public/create")
-    public ResponseEntity<CreateUserRequest> createUser(@NotNull @RequestBody CreateUserRequest user) {
-        try (Response createdResponse = kcAdminClient.createKeycloakUser(user)) {
-            return ResponseEntity.ok(user);//.status(createdResponse.getStatus()).build();
-        }
+    public ResponseEntity<String> createUser(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
+
+        String createdResponse =  kcAdminClient.createKeycloakUser(user);
+        return ResponseEntity.ok(createdResponse);//.status(createdResponse.getStatus()).build();
+
 
     }
 
