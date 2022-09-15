@@ -3,17 +3,22 @@ package com.ironhack.vbnk_authenticationservice.service;
 
 import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
 import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
+import com.ironhack.vbnk_authenticationservice.http.requests.NewAccountHolderRequest;
 import lombok.extern.java.Log;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.List;
-
 
 @Service
 @Log
@@ -24,6 +29,14 @@ public class KeycloakAdminClientService {
     @Value(("${keycloak.resource}"))
     public String clientId;
 
+    private static final String TARGET_SERVICE = "vbnk-data-service";
+    @Autowired
+    DiscoveryClient discoveryClient;
+    @Autowired
+    private ServletWebServerApplicationContext webServerAppCtxt;
+    @Value("${spring.application.name}")
+    private String applicationName;
+    private WebClient client;
 
     public KeycloakAdminClientService(KeycloakProvider keycloakProvider) {
         this.kcProvider = keycloakProvider;
@@ -51,8 +64,7 @@ public class KeycloakAdminClientService {
         kcUser.setEnabled(true);
         kcUser.setEmailVerified(false);
 
-//        Change this to change the group logic
-        kcUser.setGroups(List.of("members"));
+        kcUser.setGroups(List.of("customers"));
 
 
         Response response = usersResource.create(kcUser);
@@ -62,14 +74,23 @@ public class KeycloakAdminClientService {
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
             log.info("User with id: " + createdUser.getId() + " created");
-
+            createClient();
+            client.post()
+                    .uri("/v1/data/client/create/user").contentType(MediaType.APPLICATION_JSON).bodyValue(null)
+                    .retrieve().bodyToMono(CreateUserRequest.class)
+                    .block();
 //            TODO you may add you logic to store and connect the keycloak user to the local user here
 
         }
-
         return response;
 
     }
 
+    void createClient() {
+        var serviceInstanceList = discoveryClient.getInstances(TARGET_SERVICE);
+        String clientURI = serviceInstanceList.get(0).getUri().toString();
+        client = WebClient.create(clientURI);
+
+    }
 
 }
