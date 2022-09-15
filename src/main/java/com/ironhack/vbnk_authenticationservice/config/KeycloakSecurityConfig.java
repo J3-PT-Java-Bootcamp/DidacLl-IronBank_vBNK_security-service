@@ -26,16 +26,17 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/v1/security/public/token").permitAll()
-                .antMatchers("/v1/**").hasRole("developer")
-                .antMatchers( "**/client/**").hasRole("client")
-                .antMatchers("**/auth/**").hasAnyRole("admin","client")
-                .antMatchers("**/main/**").hasAnyRole("admin","customer")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .antMatchers("/").permitAll();
+//                .antMatchers("/v1/security/public/token").permitAll()
+//                .antMatchers("/v1/**").hasRole("developer")
+//                .antMatchers( "**/client/**").hasRole("client")
+//                .antMatchers("**/auth/**").hasAnyRole("admin","client")
+//                .antMatchers("**/main/**").hasAnyRole("admin","customer")
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Autowired

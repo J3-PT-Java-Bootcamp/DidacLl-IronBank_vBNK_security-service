@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="BASIC STRUCTURE">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldconfig/KeycloakSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldcontroller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldrequests/CreateUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldrequests/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/old/oldservice/KeycloakAdminClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Fixed git">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,33 +56,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/Users/SCVRI/IdeaProjects/vBNKsys/vBNK_security-service/src/main/java/com/ironhack/vbnk_authenticationservice/http",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "08db765d1ac8dbf4191ab82ad9343b5b"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SCVRI/IdeaProjects/vBNKsys/vBNK_security-service/src/main/java/com/ironhack/vbnk_authenticationservice/config&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;08db765d1ac8dbf4191ab82ad9343b5b&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice\config" />
       <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice\http" />
       <recent name="C:\Users\SCVRI\IdeaProjects\vBNKsys\vBNK_security-service\src\main\java\com\ironhack\vbnk_authenticationservice" />
     </key>
@@ -141,7 +132,12 @@
       <workItem from="1662852238375" duration="47000" />
       <workItem from="1663151768606" duration="46000" />
       <workItem from="1663165596455" duration="452000" />
-      <workItem from="1663166335761" duration="834000" />
+      <workItem from="1663166335761" duration="1182000" />
+      <workItem from="1663237073072" duration="1358000" />
+      <workItem from="1663239083591" duration="1322000" />
+      <workItem from="1663243675288" duration="180000" />
+      <workItem from="1663249283318" duration="35000" />
+      <workItem from="1663249322618" duration="1102000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -185,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662843496202</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed git">
+      <created>1663167515817</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1663167515817</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +214,7 @@
       <path value="$PROJECT_DIR$/vBNK_transaction-service" />
     </ignored-roots>
     <MESSAGE value="BASIC STRUCTURE" />
-    <option name="LAST_COMMIT_MESSAGE" value="BASIC STRUCTURE" />
+    <MESSAGE value="Fixed git" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed git" />
   </component>
 </project>
