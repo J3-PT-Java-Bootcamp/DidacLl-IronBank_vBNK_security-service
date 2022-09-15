@@ -28,13 +28,21 @@ public class UserController {
     }
 
     @GetMapping("/public/{ping}")
-    public String ping(@PathVariable(name = "ping") String ping){
-        return ping.replace('i','o');
+    public String ping(@PathVariable(name = "ping") String ping) {
+        return ping.replace('i', 'o');
     }
-    @PostMapping(value = "/public/create")
-    public ResponseEntity<?> createUser(@RequestBody CreateUserRequest user) {
-        Response createdResponse = kcAdminClient.createKeycloakUser(user);
-        return ResponseEntity.status(createdResponse.getStatus()).build();
+
+//    @PostMapping( "/public/create")
+//    public ResponseEntity<?> createUser(@NotNull @RequestBody CreateUserRequest user) {
+//        Response createdResponse = kcAdminClient.createKeycloakUser(user);
+//        return ResponseEntity.status(createdResponse.getStatus()).build();
+//
+//    }
+    @PostMapping( "/public/create")
+    public ResponseEntity<CreateUserRequest> createUser(@NotNull @RequestBody CreateUserRequest user) {
+        try (Response createdResponse = kcAdminClient.createKeycloakUser(user)) {
+            return ResponseEntity.ok(user);//.status(createdResponse.getStatus()).build();
+        }
 
     }
 

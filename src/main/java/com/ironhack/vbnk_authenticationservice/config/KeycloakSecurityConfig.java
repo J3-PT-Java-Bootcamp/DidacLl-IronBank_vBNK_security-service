@@ -23,22 +23,19 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        super.configure(http);
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/v1/security/public/create").permitAll()
+        super.configure(http);
+        http.authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/v1/security/public/ping").permitAll()
                 .antMatchers(HttpMethod.POST,"/v1/security/public/token").permitAll()
+                .antMatchers(HttpMethod.POST,"/v1/security/public/create").authenticated()
                 .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);;
+                .permitAll();
+        http.csrf().disable();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+
         KeycloakAuthenticationProvider keycloakAuthenticationProvider = keycloakAuthenticationProvider();
         keycloakAuthenticationProvider.setGrantedAuthoritiesMapper(new SimpleAuthorityMapper());
         auth.authenticationProvider(keycloakAuthenticationProvider);

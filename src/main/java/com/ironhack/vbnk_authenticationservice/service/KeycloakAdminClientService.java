@@ -26,7 +26,7 @@ public class KeycloakAdminClientService {
     private final KeycloakProvider kcProvider;
     @Value("${keycloak.realm}")
     public String realm;
-    @Value(("${keycloak.resource}"))
+    @Value("${keycloak.resource}")
     public String clientId;
 
     private static final String TARGET_SERVICE = "vbnk-data-service";
@@ -56,7 +56,7 @@ public class KeycloakAdminClientService {
         CredentialRepresentation credentialRepresentation = createPasswordCredentials(user.getPassword());
 
         UserRepresentation kcUser = new UserRepresentation();
-        kcUser.setUsername(user.getEmail());
+        kcUser.setUsername(user.getUsername());
         kcUser.setCredentials(Collections.singletonList(credentialRepresentation));
         kcUser.setFirstName(user.getFirstname());
         kcUser.setLastName(user.getLastname());
@@ -64,6 +64,7 @@ public class KeycloakAdminClientService {
         kcUser.setEnabled(true);
         kcUser.setEmailVerified(false);
 
+//        Change this to change the group logic
         kcUser.setGroups(List.of("customers"));
 
 
@@ -74,14 +75,11 @@ public class KeycloakAdminClientService {
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
             log.info("User with id: " + createdUser.getId() + " created");
-            createClient();
-            client.post()
-                    .uri("/v1/data/client/create/user").contentType(MediaType.APPLICATION_JSON).bodyValue(null)
-                    .retrieve().bodyToMono(CreateUserRequest.class)
-                    .block();
+
 //            TODO you may add you logic to store and connect the keycloak user to the local user here
 
         }
+
         return response;
 
     }
