@@ -10,18 +10,21 @@ import lombok.extern.java.Log;
 import org.keycloak.adapters.RefreshableKeycloakSecurityContext;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UsersResource;
+import org.keycloak.authorization.client.util.HttpResponseException;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import javax.ws.rs.ServiceUnavailableException;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.List;
@@ -86,8 +89,13 @@ public class KeycloakAdminClientService {
             var createdUser = userList.get(0);
             userId = createdUser.getId();
             log.info("User with id: " + createdUser.getId() + " created");
-               if(! createVBUser(request, isAdmin, tokenString, userId)) adminKeycloak.realm(realm).users().delete(createdUser.getId());
-
+            try {
+                if (!createVBUser(request, isAdmin, tokenString, userId))
+                    adminKeycloak.realm(realm).users().delete(createdUser.getId());
+            }catch (Throwable err){
+                adminKeycloak.realm(realm).users().delete(createdUser.getId());
+                throw new HttpResponseException("ERR could not save to DataService, deleted "+createdUser.getUsername()+" from authentication server", HttpStatus.REQUEST_TIMEOUT.value(), "vBNK Data Service unavailable",null);
+            }
             return createdUser.getId();
 
         }else{
@@ -99,37 +107,52 @@ public class KeycloakAdminClientService {
 
     private boolean createVBUser(CreateUserRequest user, boolean isAdmin, String tokenString, String userId) {
         checkClientAvailable();
-       return Objects.equals(client.post()
-               .uri(isAdmin ? "/v1/data/client/users/new/admin" : "/v1/data/client/users/new/account-holder")
-               .contentType(MediaType.APPLICATION_JSON)
-               .header("Authorization", tokenString)
-               .body(isAdmin ?
-                               (Mono.just(NewAdminRequest.fromRequest(user).setId(userId))) :
-                               (Mono.just(NewAccountHolderRequest.fromRequest(user).setId(userId)))
-                       , NewAccountHolderRequest.class)
-               .retrieve().bodyToMono(String.class)
-               .block(), userId);
-    }
-
-    private void checkClientAvailable() {
-        try{
-            if (client == null ) createClient();
-            if(client.get()
-                    .uri("/v1/data/client/test/ping")
-                    .retrieve()
-                    .bodyToMono(String.class)
-                    .block()
-                    !="pong")createClient();
-        }catch (Exception e){
-            createClient();
+        try {
+            String confirmation = client.post()
+                    .uri(isAdmin ? "/v1/data/client/users/new/admin" : "/v1/data/client/users/new/account-holder")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .header("Authorization", tokenString)
+                    .body(isAdmin ?
+                                    (Mono.just(NewAdminRequest.fromRequest(user).setId(userId))) :
+                                    (Mono.just(NewAccountHolderRequest.fromRequest(user).setId(userId)))
+                            , isAdmin?NewAdminRequest.class:NewAccountHolderRequest.class)
+                    .retrieve().bodyToMono(String.class)
+                    .block();
+            return confirmation.trim().equalsIgnoreCase( userId.trim());
+        }catch (Throwable err){
+            return false;
         }
     }
 
-    void createClient() {
-        var serviceInstanceList = discoveryClient.getInstances(TARGET_SERVICE);
-        String clientURI = serviceInstanceList.get(0).getUri().toString();
-        client = WebClient.create(clientURI);
+    private void checkClientAvailable() {
+        try {
+            try {
+                if (client == null) createClient();
+                if (client.get()
+                        .uri("/v1/data/client/test/ping")
+                        .retrieve()
+                        .bodyToMono(String.class)
+                        .block()
+                        != "pong") createClient();
+            } catch (Exception e) {
+                createClient();
+            }
+        }catch (Throwable err){
+            if(err instanceof ServiceUnavailableException)throw err;
+        }
+    }
 
+    void createClient() throws ServiceUnavailableException{
+        for (int i = 0; i < 3; i++) {
+            try {
+                var serviceInstanceList = discoveryClient.getInstances(TARGET_SERVICE);
+                String clientURI = serviceInstanceList.get(0).getUri().toString();
+                client = WebClient.create(clientURI);
+                return;
+            } catch (Throwable err) {}
+            try {Thread.sleep(5000);} catch (InterruptedException e) {}
+        }
+        throw new ServiceUnavailableException();
     }
 
 }

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class NewAccountHolderRequest {
     private String id;
-    private String userName,email,firstname,lastname;
+    private String username,email,firstname,lastname;
     private LocalDate dateOfBirth;
 
     private String mainStreet, mainCity, mainCountry, mainAdditionalInfo;
@@ -20,7 +20,7 @@ public class NewAccountHolderRequest {
     private Integer mailStreetNumber, mailZipCode;
     
     public static NewAccountHolderRequest fromRequest(CreateUserRequest request){
-        return new NewAccountHolderRequest().setUserName(request.getUsername())
+        return new NewAccountHolderRequest().setUsername(request.getUsername())
                 .setEmail(request.getEmail()).setFirstname(request.getFirstname()).setLastname(request.getLastname())
                 .setDateOfBirth(LocalDate.of(request.getYearOfBirth(),request.getMonthOfBirth(), request.getDayOfBirth()))
                 .setMainStreet(request.getMainStreet()).setMainCity(request.getMainCity())

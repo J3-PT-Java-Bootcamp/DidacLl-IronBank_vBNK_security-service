@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Admin creation implemented">
+    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Admin improved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ironhack/nicetomeetyoukeycloak/NiceToMeetYouKeycloakApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,9 @@
       <workItem from="1663258192719" duration="3429000" />
       <workItem from="1663261628360" duration="85000" />
       <workItem from="1663261735541" duration="14269000" />
-      <workItem from="1663286299674" duration="3560000" />
+      <workItem from="1663286299674" duration="3832000" />
+      <workItem from="1663326864210" duration="4091000" />
+      <workItem from="1663333350169" duration="6158000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -245,7 +247,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663290656636</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Admin creation implemented">
+      <created>1663292505819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663292505819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Admin improved">
+      <created>1663332364581</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663332364581</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,25 +291,25 @@
     <MESSAGE value="Fixed" />
     <MESSAGE value="Fixed keycloak" />
     <MESSAGE value="Admin creation implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin creation implemented" />
+    <MESSAGE value="Admin improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin improved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="14" />
+          <line>110</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="18" />
+          <line>62</line>
+          <properties class="com.ironhack.vbnk_authenticationservice.service.KeycloakAdminClientService" method="createKeycloakUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
