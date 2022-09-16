@@ -32,18 +32,17 @@ public class UserController {
         return ping.replace('i', 'o');
     }
 
-//    @PostMapping( "/public/create")
-//    public ResponseEntity<?> createUser(@NotNull @RequestBody CreateUserRequest user) {
-//        Response createdResponse = kcAdminClient.createKeycloakUser(user);
-//        return ResponseEntity.status(createdResponse.getStatus()).build();
-//
-//    }
+    @PostMapping( "/public/create")
+    public ResponseEntity<String> createAdmin(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
+        String createdResponse = kcAdminClient.createKeycloakUser(user,true);
+        return ResponseEntity.ok(createdResponse);
+
+    }
     @PostMapping( "/public/create")
     public ResponseEntity<String> createUser(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
 
-        String createdResponse =  kcAdminClient.createKeycloakUser(user);
+        String createdResponse =  kcAdminClient.createKeycloakUser(user,false);
         return ResponseEntity.ok(createdResponse);//.status(createdResponse.getStatus()).build();
-
 
     }
 

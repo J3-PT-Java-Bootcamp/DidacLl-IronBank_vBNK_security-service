@@ -19,7 +19,7 @@ public class NewAccountHolderRequest {
     private Integer mainStreetNumber, mainZipCode;
     private Integer mailStreetNumber, mailZipCode;
     
-    public static NewAccountHolderRequest fromCreateUserRequest(CreateUserRequest request){
+    public static NewAccountHolderRequest fromRequest(CreateUserRequest request){
         return new NewAccountHolderRequest().setUserName(request.getUsername())
                 .setEmail(request.getEmail()).setFirstname(request.getFirstname()).setLastname(request.getLastname())
                 .setDateOfBirth(LocalDate.of(request.getYearOfBirth(),request.getMonthOfBirth(), request.getDayOfBirth()))
