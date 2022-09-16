@@ -25,6 +25,7 @@ import reactor.core.publisher.Mono;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Log
@@ -56,17 +57,17 @@ public class KeycloakAdminClientService {
         return passwordCredentials;
     }
 
-    public String createKeycloakUser(CreateUserRequest user,boolean isAdmin) throws JsonProcessingException {
+    public String createKeycloakUser(CreateUserRequest request,boolean isAdmin) throws JsonProcessingException {
         var adminKeycloak = kcProvider.getInstance();
         UsersResource usersResource = kcProvider.getInstance().realm(realm).users();
-        CredentialRepresentation credentialRepresentation = createPasswordCredentials(user.getPassword());
+        CredentialRepresentation credentialRepresentation = createPasswordCredentials(request.getPassword());
 
         UserRepresentation kcUser = new UserRepresentation();
-        kcUser.setUsername(user.getUsername());
+        kcUser.setUsername(request.getUsername());
         kcUser.setCredentials(Collections.singletonList(credentialRepresentation));
-        kcUser.setFirstName(user.getFirstname());
-        kcUser.setLastName(user.getLastname());
-        kcUser.setEmail(user.getEmail());
+        kcUser.setFirstName(request.getFirstname());
+        kcUser.setLastName(request.getLastname());
+        kcUser.setEmail(request.getEmail());
         kcUser.setEnabled(true);
         kcUser.setEmailVerified(false);
 
@@ -80,35 +81,48 @@ public class KeycloakAdminClientService {
         if (response.getStatus() == 201) {
             var authentication = SecurityContextHolder.getContext().getAuthentication().getCredentials();
             var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getIdTokenString();
-            RealmResource realm1 = adminKeycloak.realm(realm);
-            UsersResource users = realm1.users();
-            List<UserRepresentation> userList = users.search(kcUser.getUsername()).stream()
+            List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername()).stream()
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
             userId = createdUser.getId();
             log.info("User with id: " + createdUser.getId() + " created");
-            try {
-                createClient();
-                var val = client.post()
-                        .uri(isAdmin?"/v1/data/client/users/new/admin":"/v1/data/client/users/new/account-holder")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", tokenString)
-                        .body(isAdmin?
-                                (Mono.just(NewAdminRequest.fromRequest(user).setId(createdUser.getId()))):
-                                (Mono.just(NewAccountHolderRequest.fromRequest(user).setId(createdUser.getId())))
-                                , NewAccountHolderRequest.class)
-                        .retrieve().bodyToMono(String.class)
-                        .block();
+               if(! createVBUser(request, isAdmin, tokenString, userId)) adminKeycloak.realm(realm).users().delete(createdUser.getId());
 
-            }catch (Exception e){
-                realm1.users().delete(createdUser.getId());
-            }
             return createdUser.getId();
 
         }else{
+            userId=response.getStatusInfo().getReasonPhrase();
         }
 
         return userId;
+    }
+
+    private boolean createVBUser(CreateUserRequest user, boolean isAdmin, String tokenString, String userId) {
+        checkClientAvailable();
+       return Objects.equals(client.post()
+               .uri(isAdmin ? "/v1/data/client/users/new/admin" : "/v1/data/client/users/new/account-holder")
+               .contentType(MediaType.APPLICATION_JSON)
+               .header("Authorization", tokenString)
+               .body(isAdmin ?
+                               (Mono.just(NewAdminRequest.fromRequest(user).setId(userId))) :
+                               (Mono.just(NewAccountHolderRequest.fromRequest(user).setId(userId)))
+                       , NewAccountHolderRequest.class)
+               .retrieve().bodyToMono(String.class)
+               .block(), userId);
+    }
+
+    private void checkClientAvailable() {
+        try{
+            if (client == null ) createClient();
+            if(client.get()
+                    .uri("/v1/data/client/test/ping")
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block()
+                    !="pong")createClient();
+        }catch (Exception e){
+            createClient();
+        }
     }
 
     void createClient() {

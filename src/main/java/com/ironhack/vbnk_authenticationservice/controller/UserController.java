@@ -33,9 +33,9 @@ public class UserController {
     }
 
     @PostMapping( "/public/create/admin")
-    public ResponseEntity<String> createAdmin(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
+    public String createAdmin(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
         String createdResponse = kcAdminClient.createKeycloakUser(user,true);
-        return ResponseEntity.ok(createdResponse);
+        return createdResponse;
 
     }
     @PostMapping( "/public/create")
