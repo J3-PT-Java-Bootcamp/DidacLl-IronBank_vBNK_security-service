@@ -83,7 +83,7 @@ public class KeycloakAdminClientService {
         String userId="";
         if (response.getStatus() == 201) {
             var authentication = SecurityContextHolder.getContext().getAuthentication().getCredentials();
-            var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getIdTokenString();
+            var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getTokenString();
             List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername()).stream()
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);

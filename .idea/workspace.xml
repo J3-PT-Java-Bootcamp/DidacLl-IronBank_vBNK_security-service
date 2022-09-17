@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Admin improved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +160,10 @@
       <workItem from="1663261735541" duration="14269000" />
       <workItem from="1663286299674" duration="3832000" />
       <workItem from="1663326864210" duration="4091000" />
-      <workItem from="1663333350169" duration="6158000" />
+      <workItem from="1663333350169" duration="6391000" />
+      <workItem from="1663344327464" duration="929000" />
+      <workItem from="1663370687625" duration="631000" />
+      <workItem from="1663414583992" duration="614000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -261,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663332364581</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Admin improved">
+      <created>1663341737916</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663341737916</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
