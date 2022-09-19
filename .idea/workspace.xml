@@ -163,7 +163,9 @@
       <workItem from="1663333350169" duration="6391000" />
       <workItem from="1663344327464" duration="929000" />
       <workItem from="1663370687625" duration="631000" />
-      <workItem from="1663414583992" duration="614000" />
+      <workItem from="1663414583992" duration="651000" />
+      <workItem from="1663481552501" duration="26000" />
+      <workItem from="1663579004885" duration="642000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -270,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663341737916</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Admin improved">
+      <created>1663455406440</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1663455406440</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,8 +317,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="22" />
+          <line>120</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
