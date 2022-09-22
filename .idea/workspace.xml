@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Admin improved">
+    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="OpenApi docs implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/config/KeycloakSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/CreateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAccountHolderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAdminRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/http/requests/NewAdminRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/vBNKAuthenticationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/vBNKAuthenticationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +172,8 @@
       <workItem from="1663370687625" duration="631000" />
       <workItem from="1663414583992" duration="651000" />
       <workItem from="1663481552501" duration="26000" />
-      <workItem from="1663579004885" duration="642000" />
+      <workItem from="1663579004885" duration="1796000" />
+      <workItem from="1663834356939" duration="4051000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -279,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663455406440</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Admin improved">
+      <created>1663587740125</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1663587740125</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,32 +325,10 @@
     <MESSAGE value="Fixed keycloak" />
     <MESSAGE value="Admin creation implemented" />
     <MESSAGE value="Admin improved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin improved" />
+    <MESSAGE value="OpenApi docs implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="OpenApi docs implemented" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
-          <line>62</line>
-          <properties class="com.ironhack.vbnk_authenticationservice.service.KeycloakAdminClientService" method="createKeycloakUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine$1" memberName="status" />

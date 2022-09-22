@@ -25,11 +25,15 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
+                .antMatchers("/docs/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/v1/security/auth/create").hasRole("admin")
+                .antMatchers(HttpMethod.POST,"/v1/security/dev/create/admin").hasRole("dev")
                 .antMatchers(HttpMethod.GET,"/v1/security/public/ping").permitAll()
                 .antMatchers(HttpMethod.POST,"/v1/security/public/token").permitAll()
-                .antMatchers(HttpMethod.POST,"/v1/security/public/create").authenticated()
                 .anyRequest()
-                .permitAll();
+                .authenticated().and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
     }
 

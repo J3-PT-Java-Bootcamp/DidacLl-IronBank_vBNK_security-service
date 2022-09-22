@@ -6,8 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 public class NewAccountHolderRequest {
     private String id;

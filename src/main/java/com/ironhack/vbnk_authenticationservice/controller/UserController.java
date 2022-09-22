@@ -5,6 +5,7 @@ import com.ironhack.vbnk_authenticationservice.config.KeycloakProvider;
 import com.ironhack.vbnk_authenticationservice.http.requests.CreateUserRequest;
 import com.ironhack.vbnk_authenticationservice.http.requests.LoginRequest;
 import com.ironhack.vbnk_authenticationservice.service.KeycloakAdminClientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.AccessTokenResponse;
 import org.springframework.http.HttpStatus;
@@ -26,26 +27,26 @@ public class UserController {
         this.kcProvider = kcProvider;
         this.kcAdminClient = kcAdminClient;
     }
-
+    @Tag(name = "ping..")
     @GetMapping("/public/{ping}")
     public String ping(@PathVariable(name = "ping") String ping) {
         return ping.replace('i', 'o');
     }
 
-    @PostMapping( "/public/create/admin")
+    @Tag(name = "Create New Admin",description = "Create New Admin User")
+    @PostMapping( "/dev/create/admin")
     public String createAdmin(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
-        String createdResponse = kcAdminClient.createKeycloakUser(user,true);
-        return createdResponse;
-
+        return kcAdminClient.createKeycloakUser(user,true);
     }
-    @PostMapping( "/public/create")
+    @Tag(name = "Create New AccountHolder",description = "Create New AccountHolder User")
+    @PostMapping( "/auth/create")
     public ResponseEntity<String> createUser(@NotNull @RequestBody CreateUserRequest user) throws JsonProcessingException {
 
         String createdResponse =  kcAdminClient.createKeycloakUser(user,false);
         return ResponseEntity.ok(createdResponse);//.status(createdResponse.getStatus()).build();
 
     }
-
+    @Tag(name = "Get Authentication Token",description = "Get Authentication Token from Keycloak server")
     @PostMapping("/public/token")
     public ResponseEntity<AccessTokenResponse> login(@NotNull @RequestBody LoginRequest loginRequest) {
         Keycloak keycloak = kcProvider.newKeycloakBuilderWithPasswordCredentials(loginRequest.getUsername(), loginRequest.getPassword()).build();
