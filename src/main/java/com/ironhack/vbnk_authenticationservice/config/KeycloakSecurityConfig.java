@@ -27,7 +27,7 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         http.authorizeRequests()
                 .antMatchers("/docs/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/v1/security/auth/create").hasRole("admin")
-                .antMatchers(HttpMethod.POST,"/v1/security/dev/create/admin").hasRole("dev")
+                .antMatchers(HttpMethod.POST,"/v1/security/dev/create/admin").hasRole("developer")
                 .antMatchers(HttpMethod.GET,"/v1/security/public/ping").permitAll()
                 .antMatchers(HttpMethod.POST,"/v1/security/public/token").permitAll()
                 .anyRequest()
