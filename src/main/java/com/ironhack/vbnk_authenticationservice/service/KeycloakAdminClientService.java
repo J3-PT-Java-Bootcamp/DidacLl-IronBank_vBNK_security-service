@@ -62,6 +62,7 @@ public class KeycloakAdminClientService {
 
     public String createKeycloakUser(CreateUserRequest request,boolean isAdmin) throws JsonProcessingException {
         var adminKeycloak = kcProvider.getInstance();
+        request.setUsername(request.getUsername().trim().toLowerCase().replace(" ","_"));
         UsersResource usersResource = kcProvider.getInstance().realm(realm).users();
         CredentialRepresentation credentialRepresentation = createPasswordCredentials(request.getPassword());
 
@@ -77,13 +78,17 @@ public class KeycloakAdminClientService {
 //        Change this to change the group logic
         kcUser.setGroups(List.of(isAdmin?"admins":"customers"));
 
-
-        Response response = usersResource.create(kcUser);
+        Response response=null;
+        try {
+            response = usersResource.create(kcUser);
+        }catch (Throwable err){
+            System.out.println(err.toString());
+        }
 
         String userId="";
         if (response.getStatus() == 201) {
             var authentication = SecurityContextHolder.getContext().getAuthentication().getCredentials();
-            var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getIdTokenString();
+            var tokenString = ((RefreshableKeycloakSecurityContext) authentication).getTokenString();
             List<UserRepresentation> userList = adminKeycloak.realm(realm).users().search(kcUser.getUsername()).stream()
                     .filter(userRep -> userRep.getUsername().equals(kcUser.getUsername())).toList();
             var createdUser = userList.get(0);
@@ -111,7 +116,7 @@ public class KeycloakAdminClientService {
             String confirmation = client.post()
                     .uri(isAdmin ? "/v1/data/client/users/new/admin" : "/v1/data/client/users/new/account-holder")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .header("Authorization", tokenString)
+                    .header("Authorization", "Bearer "+tokenString)
                     .body(isAdmin ?
                                     (Mono.just(NewAdminRequest.fromRequest(user).setId(userId))) :
                                     (Mono.just(NewAccountHolderRequest.fromRequest(user).setId(userId)))

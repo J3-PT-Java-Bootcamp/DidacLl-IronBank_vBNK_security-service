@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="OpenApi docs implemented" />
+    <list default="true" id="030fe1da-f344-4085-a591-d7e56260d593" name="Changes" comment="Fix role developer">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,6 +167,9 @@
       <workItem from="1663481552501" duration="26000" />
       <workItem from="1663579004885" duration="1796000" />
       <workItem from="1663834356939" duration="4496000" />
+      <workItem from="1663868499363" duration="4865000" />
+      <workItem from="1663887663312" duration="21000" />
+      <workItem from="1663917853751" duration="3201000" />
     </task>
     <task id="LOCAL-00001" summary="BASIC STRUCTURE">
       <created>1662339690650</created>
@@ -291,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663839255649</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix role developer">
+      <created>1663868641839</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1663868641839</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,14 +336,45 @@
     <MESSAGE value="Admin creation implemented" />
     <MESSAGE value="Admin improved" />
     <MESSAGE value="OpenApi docs implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="OpenApi docs implemented" />
+    <MESSAGE value="Fix role developer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix role developer" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ironhack/vbnk_authenticationservice/service/KeycloakAdminClientService.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine$1" memberName="status" />
         <PinnedItemInfo parentTag="org.keycloak.admin.client.Keycloak" memberName="tokenManager" />
         <PinnedItemInfo parentTag="java.lang.reflect.InvocationTargetException" memberName="stackTrace" />
+        <PinnedItemInfo parentTag="org.keycloak.admin.client.Keycloak" memberName="config" />
         <PinnedItemInfo parentTag="org.apache.http.message.BasicHttpResponse" memberName="locale" />
       </pinned-members>
     </pin-to-top-manager>
